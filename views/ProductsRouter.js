@@ -5,4 +5,6 @@ const isAdmin = require("../middlewares/isAdmin");
 
 const ProductsRouter = require('../controllers/ProductsController');
 
-router.get('/', auth ,  UserController.get_all);
+router.get('/',  ProductsRouter.get_all);
+
+module.exports = router;
