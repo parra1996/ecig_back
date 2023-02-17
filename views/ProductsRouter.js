@@ -3,8 +3,15 @@ const router = express.Router();
 const auth = require("../middlewares/auth");
 const isAdmin = require("../middlewares/isAdmin");
 
-const ProductsRouter = require('../controllers/ProductsController');
+const ProductsController = require('../controllers/ProductsController');
 
-router.get('/',  ProductsRouter.get_all);
+router.get('/',  ProductsController.get_all);
+
+router.post('/crear', ProductsController.create)
+
+router.delete('/delete/:id', ProductsController.delete_by_id)
+
+router.put('/update/:id', ProductsController.update)
 
 module.exports = router;
+

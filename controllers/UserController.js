@@ -20,14 +20,13 @@ UserController.get_all = (req, res) => {
 
 UserController.register = (req, res) => {
 
-    let name = req.body.name;
-    let lastName = req.body.lastName;
-    let email = req.body.email;
+    let {
+        name,
+        lastName,
+        email,
+    } = req.body;
     
-    console.log("antes de encriptar", req.body.password);
     let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
-
-    console.log("despues de encriptar", password);
 
     User.findAll({
         where: {
@@ -66,8 +65,10 @@ UserController.register = (req, res) => {
 
 UserController.login = (req, res) => {
     
-    let email = req.body.email;
-    let contrasena = req.body.contrasena;
+    let {
+        email,
+        password
+    } = req.body;
 
     User.findOne({
         where : {email : email}
@@ -77,7 +78,7 @@ UserController.login = (req, res) => {
             res.send("Usuario o contraseña inválido");
         }else {
 
-            if (bcrypt.compareSync(contrasena, element.contrasena)) { 
+            if (bcrypt.compareSync(password, element.password)) { 
 
                 let token = jwt.sign({ usuario: element }, authConfig.secret, {
                     expiresIn: authConfig.expires
