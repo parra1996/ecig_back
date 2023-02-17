@@ -59,8 +59,6 @@ ProductsController.delete_by_id = (req, res) => {
 
     let id = req.params.id;
 
-    console.log(id)
-
     try {
 
         Product.destroy({

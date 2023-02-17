@@ -3,8 +3,13 @@ const router = express.Router();
 const auth = require("../middlewares/auth");
 const isAdmin = require("../middlewares/isAdmin");
 
-const ProductsAquiredRouter = require('../controllers/ProductsAquiredController');
+const ProductsAquiredController = require('../controllers/ProductsAquiredController');
 
-router.get('/',  ProductsAquiredRouter.get_all);
+router.get('/',  ProductsAquiredController.get_all);
+
+router.post('/aquire/:id', ProductsAquiredController.aquire);
+
+router.delete('/:id',  ProductsAquiredController.delete_by_id);
+
 
 module.exports = router;

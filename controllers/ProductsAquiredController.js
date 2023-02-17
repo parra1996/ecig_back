@@ -1,4 +1,4 @@
-const {  Products } = require('../models/index');
+const {  ProductAquired } = require('../models/index');
 
 const { Op  } = require("sequelize");
 const bcrypt = require('bcrypt');
@@ -9,7 +9,7 @@ const ProductsAquiredController = {};
 
 ProductsAquiredController.get_all = (req, res) => {
     try { 
-        User.findAll()
+        ProductAquired.findAll()
             .then(data => {
                 res.send(data)
             }); 
@@ -18,4 +18,57 @@ ProductsAquiredController.get_all = (req, res) => {
     }
 }
 
+ProductsAquiredController.aquire = (req,res) => {
+
+    const productID = req.params.id;
+    const name = req.body.name;
+    const observations = req.body.observations;
+
+    try {
+
+        ProductAquired.create({
+                productID: productID,
+                name : name,
+                observations : observations
+            })
+            .then(producto => { 
+                if (producto) {
+                    res.send(producto)
+                } else {
+                    res.send("La creación de un nuevo producto ha fallado");
+                }
+            })
+    } catch (err) {
+        console.log(err);
+        res.send(err);
+    }
+}
+
+ProductsAquiredController.delete_by_id = async (req, res) => {
+    
+    const id = req.params.id
+
+    try {
+
+        let consulta = `DELETE FROM productaquireds WHERE (id = ${id});`;
+    
+        try {
+            let resultado = await ProductAquired.sequelize.query(consulta, {
+                type: ProductAquired.sequelize.QueryTypes.DELETE
+            });
+    
+            if (resultado !== 0) {
+                res.send("Pedido eliminado con exito!");
+            } else {
+                res.send("Ha ocurrido algun error al borrar los pedidos")
+            }
+    
+        } catch (error) {
+            res.send(error)
+        }
+
+    } catch (error) {
+        res.send(error);
+    }
+}
 module.exports = ProductsAquiredController;
