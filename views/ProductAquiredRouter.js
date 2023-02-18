@@ -11,5 +11,7 @@ router.post('/aquire/:id', ProductsAquiredController.aquire);
 
 router.delete('/:id',  ProductsAquiredController.delete_by_id);
 
+router.put('/:id', ProductsAquiredController.update_sub_product)
+
 
 module.exports = router;
