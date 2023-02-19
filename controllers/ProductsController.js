@@ -66,7 +66,6 @@ ProductsController.delete_by_id = (req, res) => {
             truncate : false
         })
         .then(product => {
-            console.log(product);
             res.send(`El Producto con la id: ${id} ha sido eliminado`);
         })
 
@@ -91,7 +90,6 @@ ProductsController.update = (req,res) => {
         productoEncontrado.update(data)
         .then(
             actualiza => {
-                console.log(actualiza)
                 res.send(actualiza)
             }
         )

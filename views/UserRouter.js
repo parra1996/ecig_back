@@ -14,13 +14,4 @@ router.post('/login',  UserController.login);
 
 router.post('/register',  UserController.register);
 
-// router.delete('/:id',auth,  UserController.delete_by_id);
-
-// router.put('/', auth, UserController.modify_password);
-
-// router.put('/:id/clave', auth, UserController.modify_user);
-
-
-
-
 module.exports = router;

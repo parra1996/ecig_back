@@ -1,7 +1,6 @@
 const {
     ProductAquired
 } = require('../models/index');
-
 const {
     Op
 } = require("sequelize");
@@ -19,6 +18,20 @@ ProductsAquiredController.get_all = (req, res) => {
             });
     } catch (error) {
         res.send(error)
+    }
+}
+
+ProductsAquiredController.get_by_id = async (req,res) => {
+
+    let id = req.params.id
+
+    console.log(id)
+    let consulta = ` SELECT productaquireds.id ,productaquireds.name, productaquireds.observations from products INNER JOIN productaquireds
+    ON products.id = productaquireds.productID WHERE products.id = ${id} `;
+    let resultado = await ProductAquired.sequelize.query(consulta,{
+        type: ProductAquired.sequelize.QueryTypes.SELECT});
+    if(resultado){
+        res.send(resultado);
     }
 }
 
@@ -43,7 +56,6 @@ ProductsAquiredController.aquire = (req, res) => {
                 }
             })
     } catch (err) {
-        console.log(err);
         res.send(err);
     }
 }
