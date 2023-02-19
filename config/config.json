@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "1234",
-    "database": "eciglogistica",
-    "host": "127.0.0.1",
+    "username": "b9922c0684a8e8",
+    "password": "3f92a996",
+    "database": "heroku_914443bd6628814",
+    "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "1234",
-    "database": "eciglogistica",
-    "host": "127.0.0.1",
+    "username": "b9922c0684a8e8",
+    "password": "3f92a996",
+    "database": "heroku_914443bd6628814",
+    "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   }
 }
