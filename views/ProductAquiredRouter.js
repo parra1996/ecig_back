@@ -7,9 +7,9 @@ const ProductsAquiredController = require('../controllers/ProductsAquiredControl
 
 router.get('/',  ProductsAquiredController.get_all);
 
-router.get('/:id',isAdmin, ProductsAquiredController.get_by_id);
+router.get('/:id', ProductsAquiredController.get_by_id);
 
-router.post('/aquire/:id', isAdmin, ProductsAquiredController.aquire);
+router.post('/aquire/:id',  ProductsAquiredController.aquire);
 
 router.delete('/:id',  ProductsAquiredController.delete_by_id);
 
