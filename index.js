@@ -1,23 +1,23 @@
-
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const db = require('./db.js');
 
+
 const PORT = process.env.PORT || 5000;
 
 const router = require('./router');
 
-let corsOptions = {//CONFIGURO OPCIONES DE CORS
+let corsOptions = {
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204
 };
 
-//Middleware
-app.use(express.json()); //PUEDO OBTENER JSON DEL BODY
-app.use(cors(corsOptions));  //USO CORS
+app.use(express.json()); 
+app.use(cors(corsOptions)); 
 app.use(router);
 
 
