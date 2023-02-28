@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "b9922c0684a8e8",
-    "password": "3f92a996",
-    "database": "heroku_914443bd6628814",
+    "username": "bccc8e09d06282",
+    "password": "092a0a01",
+    "database": "heroku_bc1258949d0ed29",
     "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   },
@@ -14,9 +14,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "b9922c0684a8e8",
-    "password": "3f92a996",
-    "database": "heroku_914443bd6628814",
+    "username": "bccc8e09d06282",
+    "password": "092a0a01",
+    "database": "heroku_bc1258949d0ed29",
     "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   }
