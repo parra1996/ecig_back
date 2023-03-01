@@ -1,9 +1,11 @@
-{
+
+
+module.exports = {
   "development": {
     "username": "bccc8e09d06282",
-    "password": "092a0a01",
-    "database": "heroku_bc1258949d0ed29",
-    "host": "eu-cdbr-west-03.cleardb.net",
+    "password": process.env.PASSWORD,
+    "database": process.env.DATABASE,
+    "host": process.env.HOST,
     "dialect": "mysql"
   },
   "test": {
@@ -15,9 +17,9 @@
   },
   "production": {
     "username": "bccc8e09d06282",
-    "password": "092a0a01",
-    "database": "heroku_bc1258949d0ed29",
-    "host": "eu-cdbr-west-03.cleardb.net",
+    "password": process.env.PASSWORD,
+    "database": process.env.DATABASE,
+    "host": process.env.HOST,
     "dialect": "mysql"
   }
 }
